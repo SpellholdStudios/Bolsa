@@ -1,0 +1,14 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    ActionOverride(LastSummonerOf(Myself),ReallyForceSpell(Myself,WIZARD_SPELL_TRAP))
+    ActionOverride(LastSummonerOf(Myself),ReallyForceSpell(Myself,WIZARD_STONE_SKIN))
+    ActionOverride(LastSummonerOf(Myself),ReallyForceSpell(Myself,WIZARD_PROTECTION_FROM_ENERGY))
+    ActionOverride(LastSummonerOf(Myself),ReallyForceSpell(Myself,WIZARD_PROTECTION_FROM_MAGIC_ENERGY))
+    ActionOverride(LastSummonerOf(Myself),ReallyForceSpell(Myself,WIZARD_IMPROVED_MANTLE))
+    ActionOverride(LastSummonerOf(Myself),ReallyForceSpell(Myself,WIZARD_MIRROR_IMAGE))
+    ActionOverride(LastSummonerOf(Myself),ReallyForceSpell(Myself,WIZARD_TRUE_SIGHT))
+    ActionOverride(LastSummonerOf(Myself),ReallyForceSpellRES("spwi923",Myself))
+    DestroySelf()
+END
