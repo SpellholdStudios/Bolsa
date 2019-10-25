@@ -14,7 +14,7 @@
 **Mod Website and Forum:** <a href="">Spellhold Studios</a><br />
 
 
-**Note:** This mod was first released on <a href="http://corellon.clandlan.net">Clan DLAN</a> and has been officially mirrored in <a href="http://www.shsforums.net/files/file/772-bolsa-v41/">Spellhold Studios</a> by <a href="http://www.shsforums.net/user/359-immortality/">Immortality</a>.<br>
+**Note:** This mod was first released on <a href="http://corellon.clandlan.net">Clan DLAN</a> and has been officially mirrored in <a href="http://www.shsforums.net/files/file/772-bolsa-v41/">Spellhold Studios</a> by <a href="http://www.shsforums.net/user/359-immortality/">Immortality</a>.<br>.<br>
 
 
 <div align="center">
@@ -41,9 +41,6 @@ This is a WeiDU mod, and therefore should be compatible with all WeiDU mods. If 
 
 
 <hr>
-
-Bolsa
-Mod for Baldur's Gate II. Bolsa is a new merchant who (as the name says well) sells several containers, bags for objects that will not appear in your inventory, ammunition belts and a very useful Staff of the Magi, besides normal objects.
 
 
 ## <a name="installation" id="installation"></a>Installation
