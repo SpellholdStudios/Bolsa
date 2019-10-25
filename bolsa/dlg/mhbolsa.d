@@ -1,7 +1,7 @@
 BEGIN ~mhbolsa~
 
 IF ~NumTimesTalkedTo(0)~ THEN BEGIN hola
-   SAY @20 
+   SAY @20
    IF ~~ THEN DO ~StartStore("mhbolsa",LastTalkedToBy())~ EXIT
 END
 
