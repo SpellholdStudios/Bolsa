@@ -10,7 +10,7 @@
 </div><br />
 
 
-**Original Author:** Alexa (idea) and Mhoram (programming and development) 
+**Original Author:** Alexa (idea) and Mhoram (programming and development)  
 **Mod Website and Forum:** <a href="">Spellhold Studios</a><br /><br />
 
 
