@@ -11,10 +11,10 @@
 
 
 **Original Author:** Alexa (idea) and Mhoram (programming and development)  
-**Mod Website and Forum:** <a href="">Spellhold Studios</a><br /><br />
+**Mod Website and Forum:** <a href="">Spellhold Studios</a><br />
 
 
-**Note:** This mod was first released on <a href="http://corellon.clandlan.net">Clan DLAN/a> and has been officially mirrored in <a href="http://www.shsforums.net/files/file/772-bolsa-v41/">Spellhold Studios</a> by <a href="http://www.shsforums.net/user/359-immortality/">Immortality</a>.
+**Note:** This mod was first released on <a href="http://corellon.clandlan.net">Clan DLAN</a> and has been officially mirrored in <a href="http://www.shsforums.net/files/file/772-bolsa-v41/">Spellhold Studios</a> by <a href="http://www.shsforums.net/user/359-immortality/">Immortality</a>.<br>
 
 
 <div align="center">
