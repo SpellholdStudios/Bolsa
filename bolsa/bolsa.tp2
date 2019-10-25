@@ -1,0 +1,180 @@
+BACKUP ~bolsa/backup~
+//AUTHOR ~www.shsforums.net/index.php?showforum=234~ //aimainahikari@hotmail.com
+SUPPORT ~http://www.shsforums.net/index.php?showforum=234~
+
+VERSION ~v6.0.0~
+
+README ~bolsa/readme/bolsa-readme-%LANGUAGE%.txt~ ~bolsa/readme/bolsa-readme-english.txt~
+
+ALWAYS
+
+	/* Converts tra files to UTF-8 */
+	ACTION_DEFINE_ARRAY mh_reload BEGIN mhbolsa setup END
+	ACTION_DEFINE_ARRAY mh_noconvert BEGIN END
+	LAF HANDLE_CHARSETS
+		INT_VAR
+			infer_charset = 1
+		STR_VAR
+			tra_path = EVAL ~%MOD_FOLDER%/tra~
+			noconvert_array = mh_noconvert
+			reload_array = mh_reload
+	END
+
+
+	/* Determines which game is installed and if the game is an Enhanced Edition. */
+	OUTER_SET is_ee = (GAME_IS ~bg2ee eet~) ? 1 : 0						// EE game
+	OUTER_SET is_tob = (GAME_IS ~bgt tob tutu tutu_totsc~) ? 1 : 0		// based on vanilla ToB engine
+
+
+	/* Adds all ToB actions to action.ids unless already present */
+	ACTION_IF GAME_IS ~soa~ THEN BEGIN
+		APPEND ~ACTION.IDS~ ~31 SpellRES(S:RES*,O:Target*)~					 UNLESS ~31 SpellRES(S:RES\*,O:Target\*)~
+		APPEND ~ACTION.IDS~ ~95 SpellPointRES(S:RES*,P:Target*)~			 UNLESS ~95 SpellPointRES(S:RES\*,P:Target\*)~
+		APPEND ~ACTION.IDS~ ~113 ForceSpellRES(S:RES*,O:Target)~			 UNLESS ~113 ForceSpellRES(S:RES\*,O:Target)~
+		APPEND ~ACTION.IDS~ ~114 ForceSpellPointRES(S:RES*,P:Target)~		 UNLESS ~114 ForceSpellPointRES(S:RES\*,P:Target)~
+		APPEND ~ACTION.IDS~ ~160 ApplySpellRES(S:RES*,O:Target)~			 UNLESS ~160 ApplySpellRES(S:RES\*,O:Target)~
+		APPEND ~ACTION.IDS~ ~181 ReallyForceSpellRES(S:RES*,O:Target)~		 UNLESS ~181 ReallyForceSpellRES(S:RES\*,O:Target)~
+		APPEND ~ACTION.IDS~ ~191 SpellNoDecRES(S:RES*,O:Target*)~			 UNLESS ~191 SpellNoDecRES(S:RES\*,O:Target\*)~
+		APPEND ~ACTION.IDS~ ~192 SpellPointNoDecRES(S:RES*,P:Target*)~		 UNLESS ~192 SpellPointNoDecRES(S:RES\*,P:Target\*)~
+		APPEND ~ACTION.IDS~ ~240 ReallyForceSpellDeadRES(S:RES*,O:Target)~	 UNLESS ~240 ReallyForceSpellDeadRES(S:RES\*,O:Target)~
+		APPEND ~ACTION.IDS~ ~318 ForceSpellRangeRES(S:RES*,O:Target)~		 UNLESS ~318 ForceSpellRangeRES(S:RES\*,O:Target)~
+		APPEND ~ACTION.IDS~ ~319 ForceSpellPointRangeRES(S:RES*,P:Target)~	 UNLESS ~319 ForceSpellPointRangeRES(S:RES\*,P:Target)~
+		APPEND ~ACTION.IDS~ ~337 ReallyForceSpellPointRES(S:RES*,P:Target*)~ UNLESS ~337 ReallyForceSpellPointRES(S:RES\*,P:Target\*)~
+	END
+
+	/* Detects other mods */
+	// Detects 1PP Wizards' Staves (core)
+	OUTER_SET is_1pp_staff = (MOD_IS_INSTALLED ~1pp.tp2~ ~207~) ? 1 : 0
+
+	ACTION_IF (is_ee OR is_1pp_staff) BEGIN
+		INCLUDE ~%MOD_FOLDER%/lib/1pp_macros.tpa~
+		LAM ~Locations~
+	END
+
+	LAM ~GW_ADJUST_COL_TOOLTIP~					// Staff of Magus needs 4 tooltips strref columns
+	LAM ~GW_READ_COL_TOOLTIP~					// Reads how many columns are in tooltip.2da file.
+
+END
+
+AUTO_TRA ~bolsa/tra/%s~
+
+LANGUAGE ~Espanol~
+		 ~spanish~
+		 ~bolsa/tra/spanish/setup.tra~
+
+LANGUAGE ~English (by Lollorian)~
+		 ~english~
+		 ~bolsa/tra/english/setup.tra~
+
+LANGUAGE ~Francais (traduction : Elgaern)~
+		 ~french~
+		 ~bolsa/tra/french/setup.tra~
+
+LANGUAGE ~Italiano (by Ilot)~
+		 ~italian~
+		 ~bolsa/tra/italian/setup.tra~
+
+
+/* ====================== *
+ *         Bolsa          *
+ * ====================== */
+
+BEGIN @0
+DESIGNATED 0
+REQUIRE_PREDICATE GAME_IS ~soa tob bgt bg2ee eet~ @1
+
+
+// Copy BAMs (certainly useless, but there is no harm to keep it...)
+// ----------
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~ibag05.bam~ BEGIN //BAMs
+	COPY ~bolsa/bam~ ~override~
+END
+
+// Install bags
+// ------------
+COPY_EXISTING ~bag02.sto~ ~override/mhbag02.sto~
+              ~bag02.itm~ ~override/mhbag02.itm~
+              ~bag03.sto~ ~override/mhbag03.sto~
+              ~bag03.itm~ ~override/mhbag03.itm~
+              ~bag04.sto~ ~override/mhbag04.sto~
+              ~bag04.itm~ ~override/mhbag04.itm~
+
+// Cinturon de munición - Ammo Belt
+COPY ~bolsa/store/mhbag05.sto~ ~override~ 
+	SAY NAME2 @15
+
+COPY ~bolsa/itm/mhbag05.itm~ ~override~
+	SAY NAME1 @15
+	SAY NAME2 @15
+	SAY UNIDENTIFIED_DESC @16
+	SAY DESC @16
+
+// Caja de pociones - Potion Case
+COPY ~bolsa/mhbag06.sto~ ~override~
+	SAY NAME2 @17
+
+COPY ~bolsa/itm/mhbag06.itm~ ~override~
+	SAY NAME1 @17
+	SAY NAME2 @17
+	SAY UNIDENTIFIED_DESC @18
+	SAY DESC @18
+
+// Bastón de magus - Staff of Magus
+COPY ~bolsa/itm/mhconti.itm~ ~override~
+	SAY NAME1 @11
+	SAY NAME2 @11
+	LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_desc_to_update = "@12" END
+	PATCH_IF (is_ee) BEGIN
+		LPF ~GW_ALTER_ITEM_ALTER_HEADER_FLAGS~ INT_VAR type = 3 header = 2 flag_breaksanctuary = 1 END
+	END
+	PATCH_IF (is_ee OR is_1pp_staff) BEGIN
+		WRITE_ASCII 0x22 ~GS~			// Glowing staff
+		WRITE_ASCII 0x44 ~1GSTAFGS~ #8	// Replace GSTAF01
+		LPM ~clear~
+		SET gradient = 127				// Adds colour index 127 DARK_BRICK_RED
+		SET location = wpink			// location
+		LPM ~colour~
+		SET gradient = 207				// Adds colour index 207 NOBLE_MINOR2-CHROME_GOLD
+		SET location = wteal			// location
+		LPM ~colour~
+		SET gradient = 192				// colour index 192 CHROME_TEAL replaces 25 DARK_PURE_GOLD
+		SET location = wgrey			// location
+		LPM ~colour~
+		SET setr = 0
+		SET setg = 0
+		SET setb = 0
+		SET location = wblue			// location
+		LPM ~glow~
+		SET gradient = 250				// Adds colour index 250 SHADOW_DRUID_MAJOR-YELLOW_ORANGE
+		SET location = wblue			// location
+		LPM ~colour~
+		SET gradient = 220				// colour index 220 ELF_MAJOR-MIDNIGHT_BLUE replaces 27 GRAY
+		SET location = wred				// location
+		LPM ~colour~
+	END
+BUT_ONLY
+LAF ~GW_ADD_ITEM_TOOLTIPS~ STR_VAR GW_objet = ~mhconti~ GW_tooltips = ~15529 3895 26304 @121~ END	// Melee - Fireball-Lightning 3 times per day - Spell Trap once per day - Mordekainen's Contingency once per day 
+COPY_EXISTING ~tooltip.2da~ ~override~
+	PRETTY_PRINT_2DA
+
+// Lanzador Contingencia en Cadena Mejorada
+COPY ~bolsa/cre/mhbolsa2.cre~ ~override~
+	SAY NAME1 @13
+	SAY NAME2 @13
+
+// Script para lanzar Contingencia en Cadena Mejorada
+COMPILE ~bolsa/baf/mhbolsa2.baf~
+
+// Vendedor
+COPY ~bolsa/cre/mhbolsa.cre~ ~override~
+	SAY NAME1 @14
+	SAY NAME2 @14
+
+// Tienda nueva
+COPY ~bolsa/store/mhbolsa.sto~ ~override~
+	SAY NAME2 @0
+
+// Dialogo del vendedor
+COMPILE ~bolsa/dlg/mhbolsa.d~
+
+EXTEND_BOTTOM ~ar0511.bcs~ ~bolsa/baf/mhbolsa.baf~
