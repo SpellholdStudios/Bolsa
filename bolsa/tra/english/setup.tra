@@ -1,0 +1,70 @@
+@9001 = ~[Oo]nly[ %tab%]+[Uu]sable[ %tab%]+[Bb]y[ %tab%]*:~
+@9002 = ~\(Not[ %tab%]+\|Un\)[Uu]sable[ %tab%]+[Bb]y[ %tab%]*:~
+
+@0    = ~Bolsa~
+@1    = ~This mod is not available for your game.~
+
+@11   = ~Staff of Magus~
+@12   = ~The Staff of Magus is a powerful tool in the hands of any mage, as it was enchanted by the great Archmage Magus. It possesses all the powers of a Staff of the Magi and the possibility of launching a Mordekainen's Contingency. The Staff is good in melee, grants invisibility, and offers protection from charms and evil. It can also Spell Trap and Dispel Magic, and launch a Fireball-Lighting Bolt combination. The quintessential mage item.
+
+STATISTICS
+
+Equipped abilities:
+- Armor Class: +2
+- Saving Throws: +2
+- Invisibility
+- Immunity to charm
+- Protection From Evil
+
+Charge abilities:
+- Fireball-Lightning Bolt three times per day
+  Fireball: 10d6 fire damage to all in a 15-ft. radius (Save vs. Spell for half)
+  Lightning: 10d6 electrical damage to all in its path (Save vs. Spell for half)
+  Range: 150 ft.
+
+- Spell Trap once per day
+  Duration: 8 hours or until 30 spell levels have been trapped
+  Area of Effect: The user
+
+- Mordekainen's Contingency once per day
+  Spell Trap
+  Stoneskin
+  Protection from Energy
+  Protection from Magic Energy
+  Improved Mantle
+  Mirror image
+  True Sight
+   Summon Planetar
+
+Combat abilities:
+- Dispel Magic on each hit
+
+THAC0: +1 bonus (strikes as a +5 weapon)
+Damage: 1d6+1
+Damage type: crushing
+Weight: 4
+Speed Factor: 1
+Proficiency Type: Quarterstaff
+Type: Two-handed
+Requires: 5 Strength
+Usable By:
+ Mage~
+//– Dispel Magic at level 30 on each hit
+@121  = ~Mordekainen's Contingency~
+@13   = ~Chain Contingency~
+
+@14   = ~Merchant~
+
+@15   = ~Ammo Belt~
+@16   = ~This shoulder belt is ideally suited for holding sling bullets, darts, arrows or bolts.
+
+STATISTICS:
+
+Weight: 2~
+
+@17   = ~Potion Case~
+@18   = ~Typically carried by traveling healers, this leather case folds open and allows the user to strap delicate potion bottles to its cushioned side with numerous leather thongs for safe storage during travel.
+
+STATISTICS:
+
+Weight: 2~

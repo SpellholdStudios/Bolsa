@@ -1,0 +1,163 @@
+@9001 = ~[Uu]tilisable[ %tab%]+[Uu]niquement[ %tab%]+[Pp]ar[ %tab%]*:~
+@9002 = ~\([Nn]on[ %tab%]+\|[Ii]n\)[Uu]tilisable[ %tab%]+[Pp]ar[ %tab%]*:~
+
+@0    = ~Bolsa~
+@1    = ~Ce mod n'est pas disponible pour votre jeu.~
+
+@11   = ~Bâton de Magus~
+@12   = ~Le bâton de Magus est un outil puissant dans les mains de n'importe quel mage car il a été enchanté par le grand Archimage Magus. Il dispose de tous les pouvoirs d'un bâton de mage normal en plus de la possibilité de lancer une Contingence de Mordenkainen. Le bâton est efficace en combat rapproché, rendre invisible quiconque le porte et offre une protection contre les charmes et le mal. Il permet aussi de lancer un Piège à sorts, une combinaison de boule de feu et d'éclair magique, et peut dissiper la magie. C'est la quintessence d'un objet de mage.
+
+PARAMÈTRES :
+
+Capacités d'équipement :
+- Invisibilité
+- Immunité aux charmes
+- Protection contre le mal
+- Classe d'armure : bonus de 2
+- Jets de sauvegarde : +2
+
+
+Capacités de charge : 
+- Boule de feu-Éclair 3 fois par jour
+  Dégâts : dégâts combinés d'une boule de feu et d'un éclair
+  Portée : 45 mètres
+
+- Piège à sorts une fois par jour
+  Durée : 8 heures ou jusqu'à ce que 30 niveaux de sort aient été emprisonnés
+
+- Contingence de Mordenkainen une fois par jour
+  Piège à sorts
+  Peau de pierre
+  Protection contre l'énergie
+  Protection contre l'énergie magique
+  Manteau amélioré
+  Image miroir
+  Vision véritable
+  Convocation de planétaire
+
+Capacité de combat (chaque coup) :
+- Dissipation de la magie
+
+TAC0 : +1 (frappe comme une arme +5)
+Dégâts : 1d6 +1
+Type de dégâts : contondant
+Poids : 4
+Facteur de vitesse : 1
+Type de compétence : bâton
+Type : arme à 2 mains
+Force nécessaire : 5
+Utilisable uniquement par : 
+ Mage~
+@121  = ~Contingence de Mordenkainen~
+@13   = ~Chaîne de contingences~
+
+@14   = ~Vendeur~
+
+@15   = ~Ceinture à munitions~
+@16   = ~Cette sangle est idéale pour stocker sur l'épaule des billes de fronde, des fléchettes, des flèches ou des carreaux.
+
+PARAMÈTRES :
+
+Poids : 2~
+
+@17   = ~Boîte à potions~
+@18   = ~Généralement utilisée par les guérisseurs itinérants, cette boîte de cuir aux renforts de plumes et aux lanières de cuir permet de protéger des chocs les potions et les fioles les plus fragiles.
+
+PARAMÈTRES :
+
+Poids : 2~
+
+
+// WeiDU prompts
+@-1000= "Le mod %TP2_FILE_NAME% contient"
+@-1001= "composants optionnels distincts.
+Pour gagner du temps, vous pouvez choisir ce que vous souhaitez faire d'eux
+au niveau general plutot que de repondre aux questions pour chacun.
+"
+@-1002= "Que faut-il faire de tous les composants qui NE sont PAS ENCORE installes ?
+Les [I]nstaller, les [S]auter, dem[A]nder pour chacun ? "
+@-1003= "Que faut-il faire de tous les composants qui sont DEJA installes ?
+Les [R]einstaller, les s[U]pprimer, les [S]auter, dem[A]nder pour chacun ? "
+
+@-1004= "S'IL VOUS PLAIT, envoyez par e-mail le fichier"
+@-1005= "a"
+
+@-1006= "Installer le composant ["
+@-1007= "] ?
+[R]einstaller, co[N]server, s[U]pprimer ou [Q]uitter ? "
+@-1008= "] ?
+[I]nstaller, [N]e pas installer ou [Q]uitter ? "
+
+@-1009= "Entrez une partie du nom du module : "
+
+@-1010= "Reinstallation du composant ["
+@-1011= "] "
+@-1012= "Reinstallation dans la langue"
+
+@-1013= "Suppression de l'ancienne installation de ["
+@-1014= "] au prealable..."
+@-1015= "SUPPRESSION REUSSIE DE L'ANCIEN"
+
+@-1016= "Installation en cours"
+@-1017= "ERREUR pendant l'installation de ["
+@-1018= "], retour a l'etat anterieur"
+@-1019= "INSTALLATION REUSSIE"
+@-1020= "Saute"
+@-1021= "Suppression de ["
+@-1022= "] (composant #"
+@-1023= ")"
+@-1024= "SUPPRESSION REUSSIE DE ["
+
+@-1025= "] ?
+[R]einstaller, co[N]server, s[U]pprimer, [Q]uitter ou choisir un parmi :"
+@-1026= "] ?
+[N]e pas installer, [Q]uitter ou choisir un parmi :"
+@-1027= " (installe actuellement)"
+
+@-1028= "Souhaitez-vous afficher les composants de ["
+@-1029= "] ?
+[Y]Oui, [N]on ? "
+
+@-1030= "] ?
+choisir un parmi :"
+@-1031= "] ?
+[R]einstaller, co[N]server, [Q]uitter ou choisir un parmi :"
+@-1032= "INSTALLATION ECHOUEE A CAUSE D'ERREURS"
+@-1033= "INSTALLATION AVEC DES ALERTES"
+@-1034= "Souhaitez-vous afficher les instructions (ReadMe) ? [Y]Oui [N]on"
+@-1035= "Dans la langue"
+
+@-1036= "Saute le GROUPE ["
+@-1037= "] pour cause d'absence des pre-requis."
+
+@-1038= "dem[A]nder pour chaque composant, tout [S]auter, ou choisir une selection pre-definie :"
+@-1039= "dem[A]nder pour chaque composant, [R]einstaller la configuration courante, tout s[U]pprimer, tout [S]auter, ou choisir une selection pre-definie :"
+
+@-1040= "
+Veuillez choisir la langue dans laquelle vous souhaitez jouer au jeu.
+Si par la suite vous desirez jouer au jeu dans une langue differente, il vous
+faudra editer le fichier weidu.conf et reinstaller vos mods.
+"
+@-1041= "Tcheque"
+@-1042= "Allemand"
+@-1043= "Anglais"
+@-1044= "Espagnol"
+@-1045= "Francais"
+@-1046= "Italien"
+@-1047= "Polonais"
+@-1048= "Portugais"
+@-1049= "Turc"
+@-1050= "Japonais"
+@-1051= "Coreen"
+@-1052= "Chinois simplifie"
+@-1053= "Russe"
+@-1054= "Ukrainien"
+
+@-1060= "
+Ce jeu est disponible en plusieurs langues mais WeiDU ne sait pas laquelle a ete choisie quand ce mod a ete installe.
+
+Veuillez indiquer quelle langue du jeu a ete utilisee quand vous avez installe ce mod. Votre choix servira jusqu'a ce que WeiDU s'arrete mais ne sera pas memorise.
+"
+@-1061= "
+Utilisation de"
+@-1062= " et "

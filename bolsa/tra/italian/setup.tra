@@ -1,0 +1,71 @@
+@0   = ~Bolsa~
+@1   = ~Questo mod non e disponibile per il tuo gioco.~
+
+@9001 =~[Uu]tilizzabile[ %tab%]+[Da]a[ %tab%]*:~
+@9002 =~[Nn]on[ %tab%]+[Uu]tilizzabile[ %tab%]+[Da]a[ %tab%]*:~
+
+@11   = ~Bastone di Magus~
+@12   = ~Il Bastone di Magus é un potente oggetto nelle mani di qualsiasi mago poiché è incantato dal Grande Arcimago Magus. Possiede tutti i poteri di un Bastone dei Maghi con la possibilità di lanciare una Contingenza di Mordekainen. Il bastone  è ottimo nel combattimento da mischia, conferisce invisibilità e offre protezione contro il male e gli ammaliamenti. Può anche lanciare Trappola per Incantesimi e Dissolvi Magie e scagliare una combinazione di Fulmine-Palla di Fuoco. Il massimo degli strumenti di un mago. La quintessenza degli strumenti di un mago.
+
+STATISTICHE:
+
+Abilità durante l'uso:
+- Classe Armatura: +2
+- Tiri-salvezza: +2
+- Invisibilità
+- Immunità allo Charme
+- Protezione dal Male
+
+Abilità attivabili:
+- Palla di Fuoco-Fulmine tre volte al giorno
+  Palla di Fuoco: 10d6 punti di danno da fuoco a chiunque si trovi in un raggio di 9 metri (un tiro-salvezza contro Incantesimi effettuato con successo dimezza il danno)
+  Fulmine: 10d6 punti di danno da elettricità a chiunque si trovi lungo il suo percorso (un tiro-salvezza contro Incantesimi effettuato con successo dimezza il danno)
+  Raggio d'azione: 46 metri
+
+- Trappola per Incantesimi una volta al giorno
+  Durata: 8 ore o finché 30 livelli di incantesimi non sono stati intrappolati
+  Area d'effetto: Il personaggio
+
+- Contingenza di Mordekainen una volta al giorno
+  Trappola per Incantesimi
+  Pelle di Pietra
+  Protezione dall'Energia
+  Protezione dall'Energia Magica
+  Manto Potenziato
+  Immagini illusorie
+  Vera Vista
+  Evocare Planetar
+
+Abilità in combattimento:
+- Dissolvi Magie con ogni colpo messo a segno
+
+THAC0: +1 (colpisce come se fosse un'arma +5)
+Danno: 1d6+1
+Tipo di danno: contundente
+Peso: 4
+Fattore-velocità: 1
+Tipo di Competenza: Bastone Rinforzato
+Tipo: A due mani
+Richiede: 5 alla Forza
+
+Utilizzabile da:
+Maghi~
+//- Dissolvi Magie con ogni colpo messo a segno lanciato come se il personaggio fosse di 30° livello
+@121  = ~Contingenza di Mordekainen~
+@13   = ~Catena di Contingenze~
+
+@14   = ~Mercante~
+
+@15   = ~Cintura per Munizioni~
+@16   = ~Questa cintura a spalla è perfetta per contenere proiettili, dardi, frecce o quadrelli.
+
+STATISTICHE:
+
+Peso: 2~
+
+@17   = ~Contenitore per Pozioni~
+@18   = ~Solitamente in possesso dei guaritori erranti, questo astuccio di cuoio si srotola e permette a chi lo utilizza di fissare delicate bottigliette per le pozioni, nel suo lato imbottito, con numerose strisce di cuoio per una custodia sicura durante il viaggio.
+
+STATISTICHE:
+
+Peso: 2~

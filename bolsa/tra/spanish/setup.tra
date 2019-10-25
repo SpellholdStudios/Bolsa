@@ -1,0 +1,167 @@
+@0    = ~Bolsa~
+@1    = ~Este mod no esta disponible para tu juego.~
+
+@9001 =~[Pe]ermitido[ %tab%]+[A]a[ %tab%]*:~				// Usable by:
+@9002 =~[Nn]o[ %tab%]+[Pe]ermitido[ %tab%]+[A]a[ %tab%]*:~	// Not usable by:
+
+@11   = ~Bastón de Magus~
+@12   = ~El Bastón de Magus es una poderosa herramienta en manos de cualquier mago, modificado por el gran archimago Magus posee todos los poderes de un bastón de hechicero y la posibilidad de lanzar una Contingencia de Mordekainen. Este bastón es útil en combate, proporciona invisibilidad y ofrece protección contra el mal y contra conjuros de hechizo. También puede lanzar Trampa contra Conjuros, una combinación de Rayo Relampagueante y Bola de Fuego, y Disipar Magia. El objeto indispensable para cualquier hechicero.
+
+CARACTERÍSTICAS:
+
+Aptitudes poseídas:
+- Clase de armadura: +2
+- Tiradas de salvación:  +2
+- Invisibilidad
+- Inmunidad a dominación
+- Protección contra el mal
+
+Aptitudes especiales:
+- Trampa contra Conjuros 1/día
+  Duración: 8 horas o hasta que se absorban 30 niveles de conjuro
+  Área de efecto: El lanzador
+
+- Bola de Fuego y Rayo Relampagueante 3/día
+  Daño: 10D6 ígneo (tirada de salvación contra conjuro para sufrir la mitad de daño) y 10D6 eléctrico (tirada de salvación contra conjuro para sufrir la mitad de daño)
+  Alcance: 45 metros
+  Área de efecto: Radio de 10 metros y trayectoria del rayo
+
+- Trampa contra Conjuros 1/día
+  Duración: 8 horas o hasta que se absorban 30 niveles de conjuro
+  Área de efecto: El lanzador
+
+- Contingencia de Mordekainen 1/día
+  Trampa contra Conjuros
+  Piel Pétrea
+  Protección Contra le Energía
+  Protección Contra la Energía Mágica
+  Manto Mejorado
+  Imagen Espejada
+  Vista Verdadera
+  Convocar Planotario
+
+Aptitudes de combate:
+- Disipar Magia con cada golpe
+
+GAC0: +1 (golpea como un arma +5)
+Daño: 1D6 +1
+Tipo de daño: Contundente
+Peso: 4 lbs
+Factor de velocidad: 1
+Talento marcial: Bastón
+Tipo de arma: A dos manos
+Requisitos: Fuerza 5
+
+Permitido a:
+ Magos~
+// Disipar Magia (nivel 30) con cada golpe
+
+@121  = ~Contingencia de Mordekainen~
+@13   = ~Contingencia en Cadena~
+
+@14   = ~Vendedor~
+
+@15   = ~Cinturón de munición~
+@16   = ~Este cinto de hombro está pensado para llevar en él plomos de honda, dardos, flechas o virotes de ballesta.
+
+CARACTERÍSTICAS:
+
+Peso: 2 lbs~
+
+@17   = ~Caja de pociones~
+@18   = ~Utilizado sobre todo por sanadores ambulantes, este maletín de piel es muy espacioso, permitiendo al usuario amarrar los delicados envases de pociones a su parte acolchada con numerosas correas de piel para garantizar su seguridad durante el viaje.
+
+CARACTERÍSTICAS:
+
+Peso: 2 lbs~
+
+
+// WeiDU prompts
+@-1000 = ~El mod %TP2_FILE_NAME% tiene~
+@-1001 = ~distintos componentes opcionales.
+Puedes elegir que hacer con ellos a la vez o de uno en uno.
+~
+@-1002 = ~Que hacer con todos los componentes que NO estan instalados?
+[I]Instalar, [S]Ignorar, [A]Preguntar uno por uno. ~
+@-1003 = ~Que hacer con todos los componentes que SI estan instalados?
+[R]Reinstalar, [U]Desinstalar, [S]Ignorar, [A]Preguntar uno por uno. ~
+
+@-1004 = ~Por favor, envia el archivo~
+@-1005 = ~a~
+
+@-1006 = ~Instalar Componente [~
+@-1007 = ~]?
+[R]Reinstalar, [N]No Modificar, [U]Desinstalar o [Q]Salir. ~
+@-1008 = ~]?
+[I]Instalar, [N]No Instalar o [Q]Salir. ~
+
+@-1009 = ~Introduce parte del nombre de un modulo: ~
+
+@-1010 = ~Reinstalando el componente [~
+@-1011 = ~] ~
+@-1012 = ~Reinstalando usando el idioma~
+
+@-1013 = ~Eliminando instalacion antigua de [~
+@-1014 = ~] ...~
+@-1015 = ~ELIMINADO CORRECTAMENTE~
+
+@-1016 = ~Instalando~
+@-1017 = ~ERROR Instalando [~
+@-1018 = ~], revirtiendo a estado anterior~
+@-1019 = ~INSTALADO CORRECTAMENTE ~
+@-1020 = ~Ignorando~
+@-1021 = ~Eliminando [~
+@-1022 = ~] (componente #~
+@-1023 = ~)~
+@-1024 = ~ELIMINADO CORRECTAMENTE [~
+
+@-1025 = ~]?
+[R]Reinstalar, [N]No Modificar, [U]Desinstalar, [Q]Salir o elegir:~
+@-1026 = ~]?
+[N]No, [Q]Salir o elegir:~
+@-1027 = ~ (instalado)~
+
+@-1028 = ~Quieres que se muestren los componentes de [~
+@-1029 = ~]?
+[Y]Si, [N]No. ~
+
+@-1030 = ~]?
+elegir:~
+@-1031 = ~]?
+[R]Reinstalar, [N]No Modificar, [Q]Salir o elegir:~
+@-1032 = ~NO INSTALADO DEBIDO A ERRORES~
+@-1033 = ~INSTALADO CON ADVERTENCIAS ~
+@-1034 = ~Quieres que se muestre el readme? [Y]Si, [N]No. ~
+@-1035 = ~Usando idioma~
+
+@-1036 = ~Ignorando GRUPO [~
+@-1037 = ~] por no cumplir los requisitos.~
+
+@-1038 = ~[A]Preguntar por cada componente, [S]Ignorar todo, o elegir una seleccion predefinida:~
+@-1039 = ~[A]Preguntar por cada componente, [R]Reinstalar la configuracion actual, [U]Desinstalar todo, [S]Ignorar todo, o elegir una seleccion predefinida:~
+
+@-1040 = ~
+Por favor, elige el idioma en que deseas jugar el juego.
+Si quieres cambiar el idioma del juego mas adelante, tendras que editar el archivo weidu.conf y reinstalar tus mods.
+~
+@-1041 = ~Checo~
+@-1042 = ~Aleman~
+@-1043 = ~Ingles~
+@-1044 = ~Espanol~
+@-1045 = ~Frances~
+@-1046 = ~Italiano~
+@-1047 = ~Polaco~
+@-1048 = ~Portugues~
+@-1049 = ~Turco~
+@-1050 = ~Japones~
+@-1051 = ~Coreano~
+@-1052 = ~Chino simplificado~
+
+@-1060 = ~
+Este juego esta disponible en muchos idiomas, pero WeiDU no sabe que idioma se ha usado durante la instalacion de este mod.
+
+Por favor, indica que idioma usaste durante la instalacion del mod. Tu eleccion se usara hasta que WeiDU termine, pero no se guardara.
+~
+@-1061 = ~
+Usando~
+@-1062 = ~ y ~
