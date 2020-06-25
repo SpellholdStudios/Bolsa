@@ -1,9 +1,15 @@
-@9001 = ~[Uu]tilisable[ %tab%]+[Uu]niquement[ %tab%]+[Pp]ar[ %tab%]*:~
+/* ================= *
+ *  Usability flags  *
+ * ================= */
+@9001 = ~[Uu]tilisable\([ %tab%]+[Ss]eulement+\|[ %tab%]+{Uu]niquement\)?[ %tab%]+[Pp]ar[ %tab%]*:~
 @9002 = ~\([Nn]on[ %tab%]+\|[Ii]n\)[Uu]tilisable[ %tab%]+[Pp]ar[ %tab%]*:~
 
 @0    = ~Bolsa~
-@1    = ~Ce mod n'est pas disponible pour votre jeu.~
+@1    = ~Ce mod ne fonctionne que sur BG2, ToB, BGT, BG2:EE ou EET.~
 
+/* ======= *
+ *  Items  *
+ * ======= */
 @11   = ~Bâton de Magus~
 @12   = ~Le bâton de Magus est un outil puissant dans les mains de n'importe quel mage car il a été enchanté par le grand Archimage Magus. Il dispose de tous les pouvoirs d'un bâton de mage normal en plus de la possibilité de lancer une Contingence de Mordenkainen. Le bâton est efficace en combat rapproché, rendre invisible quiconque le porte et offre une protection contre les charmes et le mal. Il permet aussi de lancer un Piège à sorts, une combinaison de boule de feu et d'éclair magique, et peut dissiper la magie. C'est la quintessence d'un objet de mage.
 
@@ -13,7 +19,7 @@ Capacités d'équipement :
 - Invisibilité
 - Immunité aux charmes
 - Protection contre le mal
-- Classe d'armure : bonus de 2
+- Classe d'armure : +2
 - Jets de sauvegarde : +2
 
 
@@ -46,12 +52,13 @@ Facteur de vitesse : 1
 Type de compétence : bâton
 Type : arme à 2 mains
 Force nécessaire : 5
+
 Utilisable uniquement par : 
  Mage~
 @121  = ~Contingence de Mordenkainen~
 @13   = ~Chaîne de contingences~
 
-@14   = ~Vendeur~
+@14   = ~Marchand~
 
 @15   = ~Ceinture à munitions~
 @16   = ~Cette sangle est idéale pour stocker sur l'épaule des billes de fronde, des fléchettes, des flèches ou des carreaux.
@@ -69,6 +76,7 @@ Poids : 2~
 
 
 // WeiDU prompts
+// -------------
 @-1000= "Le mod %TP2_FILE_NAME% contient"
 @-1001= "composants optionnels distincts.
 Pour gagner du temps, vous pouvez choisir ce que vous souhaitez faire d'eux

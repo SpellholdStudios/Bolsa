@@ -1,9 +1,15 @@
+/* ================= *
+ *  Usability flags  *
+ * ================= */
 @9001 = ~[Oo]nly[ %tab%]+[Uu]sable[ %tab%]+[Bb]y[ %tab%]*:~
 @9002 = ~\(Not[ %tab%]+\|Un\)[Uu]sable[ %tab%]+[Bb]y[ %tab%]*:~
 
 @0    = ~Bolsa~
-@1    = ~This mod is not available for your game.~
+@1   = ~You must have BG2, ToB, BGT, BG2:EE or EET installed to install Bolsa mod.~
 
+/* ======= *
+ *  Items  *
+ * ======= */
 @11   = ~Staff of Magus~
 @12   = ~The Staff of Magus is a powerful tool in the hands of any mage, as it was enchanted by the great Archmage Magus. It possesses all the powers of a Staff of the Magi and the possibility of launching a Mordekainen's Contingency. The Staff is good in melee, grants invisibility, and offers protection from charms and evil. It can also Spell Trap and Dispel Magic, and launch a Fireball-Lighting Bolt combination. The quintessential mage item.
 
@@ -14,7 +20,7 @@ Equipped abilities:
 - Saving Throws: +2
 - Invisibility
 - Immunity to charm
-- Protection From Evil
+- Protection from Evil
 
 Charge abilities:
 - Fireball-Lightning Bolt three times per day
@@ -34,7 +40,7 @@ Charge abilities:
   Improved Mantle
   Mirror image
   True Sight
-   Summon Planetar
+ Summon Planetar
 
 Combat abilities:
 - Dispel Magic on each hit
@@ -42,11 +48,14 @@ Combat abilities:
 THAC0: +1 bonus (strikes as a +5 weapon)
 Damage: 1d6+1
 Damage type: crushing
-Weight: 4
 Speed Factor: 1
 Proficiency Type: Quarterstaff
 Type: Two-handed
-Requires: 5 Strength
+Requires:
+ 5 Strength
+
+Weight: 4
+
 Usable By:
  Mage~
 //– Dispel Magic at level 30 on each hit
@@ -68,3 +77,10 @@ Weight: 2~
 STATISTICS:
 
 Weight: 2~
+
+
+/* NOTE for translators :
+
+In case WeiDU prompts need to be displayed in English instead and not special encoding due to your native langage (for example Russian), please translate the following line that will avoid to install the .cre file name in English: 
+@20   = ~Bolsa~
+*/

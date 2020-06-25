@@ -1,17 +1,23 @@
 @0    = ~Bolsa~
 @1    = ~Este mod no esta disponible para tu juego.~
 
-@9001 =~[Pe]ermitido[ %tab%]+[A]a[ %tab%]*:~				// Usable by:
-@9002 =~[Nn]o[ %tab%]+[Pe]ermitido[ %tab%]+[A]a[ %tab%]*:~	// Not usable by:
+/* ================= *
+ *  Usability flags  *
+ * ================= */
+@9001 =~\([Ss][oó]lo[ %tab%]+\)?[Pp]ermitido[ %tab%]+[Aa][ %tab%]*:~
+@9002 =~[Nn]o[ %tab%]+[Pp]ermitido[ %tab%]+[Aa][ %tab%]*:~
 
+/* ======= *
+ *  Items  *
+ * ======= */
 @11   = ~Bastón de Magus~
 @12   = ~El Bastón de Magus es una poderosa herramienta en manos de cualquier mago, modificado por el gran archimago Magus posee todos los poderes de un bastón de hechicero y la posibilidad de lanzar una Contingencia de Mordekainen. Este bastón es útil en combate, proporciona invisibilidad y ofrece protección contra el mal y contra conjuros de hechizo. También puede lanzar Trampa contra Conjuros, una combinación de Rayo Relampagueante y Bola de Fuego, y Disipar Magia. El objeto indispensable para cualquier hechicero.
 
 CARACTERÍSTICAS:
 
-Aptitudes poseídas:
-- Clase de armadura: +2
-- Tiradas de salvación:  +2
+Aptitudes poseidas:
+ Clase de armadura: +2
+- Tiradas de salvación: +2
 - Invisibilidad
 - Inmunidad a dominación
 - Protección contra el mal
@@ -46,16 +52,16 @@ Aptitudes de combate:
 GAC0: +1 (golpea como un arma +5)
 Daño: 1D6 +1
 Tipo de daño: Contundente
-Peso: 4 lbs
 Factor de velocidad: 1
 Talento marcial: Bastón
 Tipo de arma: A dos manos
 Requisitos: Fuerza 5
 
+Peso: 4
+
 Permitido a:
  Magos~
 // Disipar Magia (nivel 30) con cada golpe
-
 @121  = ~Contingencia de Mordekainen~
 @13   = ~Contingencia en Cadena~
 
@@ -66,17 +72,18 @@ Permitido a:
 
 CARACTERÍSTICAS:
 
-Peso: 2 lbs~
+Peso: 2~
 
 @17   = ~Caja de pociones~
 @18   = ~Utilizado sobre todo por sanadores ambulantes, este maletín de piel es muy espacioso, permitiendo al usuario amarrar los delicados envases de pociones a su parte acolchada con numerosas correas de piel para garantizar su seguridad durante el viaje.
 
 CARACTERÍSTICAS:
 
-Peso: 2 lbs~
+Peso: 2~
 
 
 // WeiDU prompts
+// -------------
 @-1000 = ~El mod %TP2_FILE_NAME% tiene~
 @-1001 = ~distintos componentes opcionales.
 Puedes elegir que hacer con ellos a la vez o de uno en uno.
