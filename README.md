@@ -22,7 +22,7 @@ Baldur's Gate Trilogy and EET<h3>
 
 &nbsp;
 
-**Note:** This mod was first released at <a href="http://corellon.clandlan.net">Clan DLAN</a> and has been officially mirrored at <a href="http://www.shsforums.net/files/category/91-clan-dlan-mirror/">Spellhold Studios Clan DLAN mirror</a> by <a href="http://www.shsforums.net/user/359-immortality/">Immortality</a>.
+**Note:** This mod was first released at <a href="http://corellon.clandlan.net">Clan DLAN</a> and has been officially mirrored at <a href="http://www.shsforums.net/files/category/91-clan-dlan-mirror/">Spellhold Studios Clan DLAN mirror</a> by <a href="http://www.shsforums.net/user/359-immortality/">Immortality</a>.<br>
 
 
 <div align="center">
@@ -170,7 +170,7 @@ If you wish to translate the mod, have a suggestion, or should encounter any bug
 - Added native EET compatibility.
 - Fixed wrong and inaccurate *ACTION.IDS* patching.
 - Fixed a bug creating Bolsa in Adventurer's Mart (AR0702) instead of the Five Flagons Inn 2nd Floor (AR0511).
-- <ins> Staff of Magus</ins> (mhconti.itm):
+- <ins>Staff of Magus</ins> (mhconti.itm):
 	- Fixed wrong Speed Factor (1 - was 4) and weight (4 - was 3).
 	- Modified opcode #20 (Invisibility) resistance: set to 3 Dispel/Bypass resistance.
 	- Modified opcodes #101 (Immunity to effect) and #169 (Prevent portrait icon): set to 0 Natural/Nonmagical.
