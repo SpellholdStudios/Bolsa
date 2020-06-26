@@ -1,14 +1,13 @@
 /* ================================================================================================================================================== *
  * LIST of FUNCTIONS :                                                                                                                                *
  * -------------------                                                                                                                                *
- *  - FUNCTION GW_UPDATE_ITM_DESCRIPTION_TO_EE		: MODIFIES item descriptions to fit EE description format.                         => line #  14  *
- *  - FUNCTION GW_WRITE_EE_ITM_DESCRIPTIONS			: WRITES item descriptions in ITM files according to the game (classical or EE).   => line #  54  *
- *  - MACRO GW_ADJUST_TOOLTIP						: ADDS new columns in tooltip.2da file if needed.                                  => line # 102  *
- *  - MACRO GW_COL_TOOLTIP							: READS tooltip.2da file number of columns.                                        => line # 136  *
- *  - FUNCTION GW_ADD_ITEM_TOOLTIPS					: ADDS a new line in tooltip.2da. file.                                            => line # 151  *
- *  - FONCTION GW_ALTER_ITEM_ALTER_HEADER_FLAGS		: ALTERS itm extender headers new EE (or ToBEx) flags.                             => line # 194  *
+ *  - FUNCTION GW_UPDATE_ITM_DESCRIPTION_TO_EE      : MODIFIES item descriptions to fit EE description format.                         => line #  13  *
+ *  - FUNCTION GW_WRITE_EE_ITM_DESCRIPTIONS         : WRITES item descriptions in ITM files according to the game (classical or EE).   => line #  53  *
+ *  - MACRO GW_ADJUST_TOOLTIP                       : ADDS new columns in tooltip.2da file if needed.                                  => line # 101  *
+ *  - MACRO GW_READ_COL_TOOLTIP                     : READS tooltip.2da file number of columns.                                        => line # 135  *
+ *  - FUNCTION GW_ADD_ITEM_TOOLTIPS                 : ADDS a new line in tooltip.2da. file.                                            => line # 150  *
+ *  - FUNCTION GW_ALTER_ITEM_ALTER_HEADER_FLAGS     : ALTERS itm extender headers new EE (or ToBEx) flags.                             => line # 196  *
  * ================================================================================================================================================== */
-
 
 /* ========================================================================================================== *
  * FUNCTION GW_UPDATE_ITM_DESCRIPTION_TO_EE: AJUSTE la DESCRIPTION des OBJETS au format Enhanced Edition.     *
@@ -147,11 +146,11 @@ DEFINE_ACTION_MACRO ~GW_READ_COL_TOOLTIP~ BEGIN
 END
 
 
-/* ======================================================================= *
- *  FUNCTION GW_ADD_ITEM_TOOLTIPS: ADDS new line in tooltip.2da. file.     *
- * ----------------------------------------------------------------------- *
- *  PARSES %GW_tooltips% string chain and adds a new line in tooltip.2da.  *
- * ======================================================================= */
+/* ========================================================================= *
+ *  FUNCTION GW_ADD_ITEM_TOOLTIPS: ADDS a new line in tooltip.2da. file.     *
+ * ------------------------------------------------------------------------- *
+ *  PARSES %GW_tooltips% string chain and adds a new line in tooltip.2da.    *
+ * ========================================================================= */
 
 DEFINE_ACTION_FUNCTION ~GW_ADD_ITEM_TOOLTIPS~
 	STR_VAR	GW_objet	= ~N~	// item code: ~sw1h01~
@@ -161,13 +160,16 @@ BEGIN
 	ACTION_IF ("%GW_objet%" STRING_COMPARE_CASE "N") BEGIN
 		ACTION_TO_UPPER GW_objet
 
-	// Generates a new row to be added to tooltip.2da
+	// Generates a row to be added to tooltip.2da
 		OUTER_TEXT_SPRINT new_row ~%GW_objet%~
 		OUTER_PATCH ~ %GW_tooltips%~ BEGIN	// Extracts each tooltip from GW_tooltips string
 			COUNT_REGEXP_INSTANCES ~[ %TAB%]+\(@?-?[0-9]+\)~ num_tooltips
 			REPLACE_EVALUATE ~[ %TAB%]+\(@?-?[0-9]+\)~ BEGIN
 				PATCH_IF ((~%MATCH1%~ STRING_MATCHES_REGEXP ~@-?[0-9]+~) = 0) BEGIN // tra ref
-					SET GW_tool = RESOLVE_STR_REF ((AT %MATCH1%))
+					INNER_PATCH_SAVE GW_tooltip ~%MATCH1%~ BEGIN
+						REPLACE_TEXTUALLY ~[@]~  ~~
+					END
+					SET GW_tool = RESOLVE_STR_REF ( (AT GW_tooltip) )
 					TEXT_SPRINT new_row ~%new_row% %GW_tool%~ 	// Adds to the new row
 				END ELSE BEGIN // strref
 					TEXT_SPRINT new_row ~%new_row% %MATCH1%~ 	// Adds to the new row
@@ -187,7 +189,7 @@ BEGIN
 
 	END
 
-END
+END	// of DEFINE_ACTION_FUNCTION
 
 
 /* ====================================================================================================================================== *
@@ -313,4 +315,4 @@ BEGIN
 
 	END
 
-END
+END	// of DEFINE_ACTION_FUNCTION

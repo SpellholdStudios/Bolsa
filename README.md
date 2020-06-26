@@ -128,8 +128,7 @@ The installer includes one single component, the main component.
 
 #### Special Acknowledgements to:
 
-- Special thanks to <a href="http://www.shsforums.net/user/5803-miloch/">Miloch</a> and <a href="http://www.shsforums.net/user/9003-leomar/">Leomar</a> for help with bams, updating and... stuff. Y'know. Things.
-- Gwendolyne: Updated translations, reviewed coding and fixed a few bugs (released version 6.0.0).
+- Gwendolyne: Updated translations, reviewed coding and fixed a few bugs (v6.0.0).
 - Deratiseur: Released native EE compatibility version (v5).
 - ilot: Italian translation.
 - Miloch: Added extra lines and review.
@@ -161,21 +160,21 @@ If you wish to translate the mod, have a suggestion, or should encounter any bug
 
 ## <a name="versions" id="versions"></a>Versions History
 
-##### Version 6.0.0 (, 2020)
+##### Version 6.0.0 (June 26, 2020)
 
 - Added *bolsa.ini* metadata file to support AL|EN's "Project Infinity".
-- TODO Replaced `AUTHOR` keyword with `SUPPORT`.
-- TODO Fixed a typo in `HANDLE_CHARSETS` function (replaced *infer_charset* with *infer_charset<ins>s</ins>*).
-- TODO Added `REQUIRE_PREDICATE` conditions to avoid installing the mod in inaccurate games.
-- TODO Added component `DESIGNATED` number and "*bolsa*" `LABEL`.
+- Replaced `AUTHOR` keyword with `SUPPORT`.
+- Fixed a typo in `HANDLE_CHARSETS` function (replaced *infer_charset* with *infer_charset<ins>s</ins>*).
+- Added `REQUIRE_PREDICATE` conditions to avoid installing the mod in inaccurate games.
+- Added component `DESIGNATED` number and "*bolsa*" `LABEL`.
 - Added native EET compatibility.
 - Fixed wrong and inaccurate *ACTION.IDS* patching.
 - Fixed a bug creating Bolsa in Adventurer's Mart (AR0702) instead of the Five Flagons Inn 2nd Floor (AR0511).
--<ins> Staff of Magus</ins> (mhconti.itm):
+- <ins> Staff of Magus</ins> (mhconti.itm):
 	- Fixed wrong Speed Factor (1 - was 4) and weight (4 - was 3).
 	- Modified opcode #20 (Invisibility) resistance: set to 3 Dispel/Bypass resistance.
-	- Modified opcodes #101 (Immunity to effect) and #169 (Prevent portrait icon): set to 0-Natural/Nonmagical.
-	- Added missing opcodes for a full Immunity to Charm effects: op#296 Protection from Specific Animation (SPNWCHRM), op#267 (protection from string = 8364 *Dominated* - 14780 *Dire charmed* - 1476 14672 *Charmed*).  Fixed opcode #142 (Display Special Effect Icon) = replaced wrong parameter2 28 (Protection from Magic) with 52 (Mind Shield).
+	- Modified opcodes #101 (Immunity to effect) and #169 (Prevent portrait icon): set to 0 Natural/Nonmagical.
+	- Added missing opcodes for a full Immunity to Charm effects: op#296 Protection from Specific Animation (SPNWCHRM), op#267 (protection from string = 8364 *Dominated* - 14780 *Dire charmed* - 1476 14672 *Charmed*). Fixed opcode #142 (Display Special Effect Icon) = replaced wrong parameter2 28 (Protection from Magic) with 52 (Mind Shield).
 	- Removed ugly Protection from Evil glowing colors: Glow Pulse [9] effect.
 	- Restored missing Protection from evil equipped effects and added DS values (117 PROTECTION_FROM_EVIL).
 	- Fireball-Lightning Bolt ability: added Break Sanctuary flag for EE games.
@@ -183,8 +182,7 @@ If you wish to translate the mod, have a suggestion, or should encounter any bug
 	- Added 1PP compatibility with EE games and classical 1PP modded games: Added Glowing staff animation (and colors) and harmonized colors item.
 	- Appended tooltip.2da: added a new column if needed, and a new strref.
 - Added foreign languages WeiDU prompts whenever possible.
-- Updated Italian and Spanish tra files for compatibility with GW_UPDATE_ITM_DESCRIPTION_TO_EE WeiDU function requirements which automatically removes usability restrictions for EE games.
-- Updated French and English translations (Gwendolyne).
+- Updated .tra files for compatibility with GW_UPDATE_ITM_DESCRIPTION_TO_EE WeiDU function requirements which automatically removes usability restrictions for EE games.
 - Updated and renamed readme files to *bolsa-readme-%LANGUAGE%.txt*, then moved them into new "*readme*" folder.
 - Reorganized mod architecture tree: created or renamed folders to sort files according to their types.
 - Included Linux and Mac Os X versions in the same package (thanks AL|EN's Infinity Auto Packager tool!).

@@ -1,7 +1,7 @@
 /* ================= *
  *  Usability flags  *
  * ================= */
-@9001 = ~[Oo]nly[ %tab%]+[Uu]sable[ %tab%]+[Bb]y[ %tab%]*:~
+@9001 = ~\([Oo]nly[ %tab%]+\)?[Uu]sable[ %tab%]+[Bb]y[ %tab%]*:~
 @9002 = ~\(Not[ %tab%]+\|Un\)[Uu]sable[ %tab%]+[Bb]y[ %tab%]*:~
 
 @0    = ~Bolsa~

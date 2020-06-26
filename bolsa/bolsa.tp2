@@ -1,32 +1,38 @@
 BACKUP ~bolsa/backup~
 //AUTHOR ~www.shsforums.net/index.php?showforum=234~ //aimainahikari@hotmail.com
-SUPPORT ~http://www.shsforums.net/index.php?showforum=234~
+SUPPORT ~Spellhold Studios at http://www.shsforums.net/forum/234-miscellaneous-released-mods/~
 
-VERSION ~v6.0.0~
+VERSION ~v5.0.0~
 
 README ~bolsa/readme/bolsa-readme-%LANGUAGE%.txt~ ~bolsa/readme/bolsa-readme-english.txt~
 
 ALWAYS
 
-	/* Converts tra files to UTF-8 */
-	ACTION_DEFINE_ARRAY mh_reload BEGIN mhbolsa setup END
-	ACTION_DEFINE_ARRAY mh_noconvert BEGIN END
-	LAF HANDLE_CHARSETS
-		INT_VAR
-			infer_charset = 1
-		STR_VAR
-			tra_path = EVAL ~%MOD_FOLDER%/tra~
-			noconvert_array = mh_noconvert
-			reload_array = mh_reload
+	/* -------------------------------------------------------------------------------- *
+	 *    Determines which game is installed and if the game is an Enhanced Edition.    *
+	 * -------------------------------------------------------------------------------- */
+	OUTER_SET is_ee      = (GAME_IS ~bg2ee eet~) ? 1 : 0		// EE game
+
+	/* ----------------- *
+	 *    Detects 1PP    *
+	 * ----------------- */
+	OUTER_SET is_1pp_staff  = ((MOD_IS_INSTALLED ~1pp.tp2~ ~207~) AND (MOD_IS_INSTALLED ~1pp.tp2~ ~400~)) ? 1 : 0	// 1ppv4: Wizards' Staves (core)
+	OUTER_SET is_1pp_staff0 = ((MOD_IS_INSTALLED ~1pp.tp2~ ~204~) AND (is_1pp_staff = 0)) ? 1 : 0					// 1ppv4: Colourable Quarterstaves without 1ppv4: Wizards' Staves (core)
+
+	/* -------------------------------- *
+	 *    Loads macros and functions    *
+	 * -------------------------------- */
+	INCLUDE ~%MOD_FOLDER%/lib/gw_functions.tpa~				// Loads macros and functions library dealing with tooltip appending, specific EE items descriptions and item restriction flags.
+
+	ACTION_IF (is_ee OR is_1pp_staff OR is_1pp_staff0) BEGIN
+		INCLUDE ~%MOD_FOLDER%/lib/1pp_macros.tpa~			// Loads 1PP macros dealing with items coloring.
+		LAM ~Locations~
+		INCLUDE ~%MOD_FOLDER%/lib/1pp_compatibility.tph~	// Loads functions restoring items coloration for EE games or if 1PP relevant components are installed.
 	END
 
-
-	/* Determines which game is installed and if the game is an Enhanced Edition. */
-	OUTER_SET is_ee = (GAME_IS ~bg2ee eet~) ? 1 : 0						// EE game
-	OUTER_SET is_tob = (GAME_IS ~bgt tob tutu tutu_totsc~) ? 1 : 0		// based on vanilla ToB engine
-
-
-	/* Adds all ToB actions to action.ids unless already present */
+	/* --------------------------------------------------------------- *
+	 *    Adds all ToB actions in action.ids unless already present    *
+	 * --------------------------------------------------------------- */
 	ACTION_IF GAME_IS ~soa~ THEN BEGIN
 		APPEND ~ACTION.IDS~ ~31 SpellRES(S:RES*,O:Target*)~					 UNLESS ~31 SpellRES(S:RES\*,O:Target\*)~
 		APPEND ~ACTION.IDS~ ~95 SpellPointRES(S:RES*,P:Target*)~			 UNLESS ~95 SpellPointRES(S:RES\*,P:Target\*)~
@@ -42,13 +48,21 @@ ALWAYS
 		APPEND ~ACTION.IDS~ ~337 ReallyForceSpellPointRES(S:RES*,P:Target*)~ UNLESS ~337 ReallyForceSpellPointRES(S:RES\*,P:Target\*)~
 	END
 
-	/* Detects other mods */
-	// Detects 1PP Wizards' Staves (core)
-	OUTER_SET is_1pp_staff = (MOD_IS_INSTALLED ~1pp.tp2~ ~207~) ? 1 : 0
-
-	ACTION_IF (is_ee OR is_1pp_staff) BEGIN
-		INCLUDE ~%MOD_FOLDER%/lib/1pp_macros.tpa~
-		LAM ~Locations~
+	/* --------------------------------------------------------------------------------------------- *
+	 *    Convert strings to UTF-8 for BGEE/BG2EE                                                    *
+	 *    No exception, everything needs to be converted                                             *
+	 *    setup.tra contains in game texts as well as installation texts and needs to be converted   *
+	 * --------------------------------------------------------------------------------------------- */
+	ACTION_DEFINE_ARRAY mh_reload BEGIN setup END
+		// any tra files used in LANGUAGE need to be reloaded after UTF-8 conversion
+	ACTION_DEFINE_ARRAY mh_noconvert BEGIN END
+	LAF HANDLE_CHARSETS
+		INT_VAR
+			infer_charsets = 1
+		STR_VAR
+			tra_path = EVAL ~%MOD_FOLDER%/tra~
+			noconvert_array = mh_noconvert
+			reload_array = mh_reload
 	END
 
 	LAM ~GW_ADJUST_COL_TOOLTIP~					// Staff of Magus needs 4 tooltips strref columns
@@ -56,37 +70,37 @@ ALWAYS
 
 END
 
+
 AUTO_TRA ~bolsa/tra/%s~
 
 LANGUAGE ~Espanol~
-		 ~spanish~
-		 ~bolsa/tra/spanish/setup.tra~
+         ~spanish~
+         ~bolsa/tra/spanish/setup.tra~
 
-LANGUAGE ~English (by Lollorian)~
-		 ~english~
-		 ~bolsa/tra/english/setup.tra~
+LANGUAGE ~English (translation by Lollorian)~
+         ~english~
+         ~bolsa/tra/english/setup.tra~
 
 LANGUAGE ~Francais (traduction : Elgaern)~
-		 ~french~
-		 ~bolsa/tra/french/setup.tra~
+         ~french~
+         ~bolsa/tra/french/setup.tra~
 
-LANGUAGE ~Italiano (by Ilot)~
-		 ~italian~
-		 ~bolsa/tra/italian/setup.tra~
+LANGUAGE ~Italiano (traduzione di ilot)~
+         ~italian~
+         ~bolsa/tra/italian/setup.tra~
 
 
 /* ====================== *
  *         Bolsa          *
  * ====================== */
-
 BEGIN @0
-DESIGNATED 0
-REQUIRE_PREDICATE GAME_IS ~soa tob bgt bg2ee eet~ @1
+DESIGNATED 0 LABEL "bolsa"
+REQUIRE_PREDICATE GAME_IS ~soa tob bgt bg2ee eet~ @1	// ~You must have BG2, ToB, BGT, BG2:EE or EET installed to install Bolsa mod.~
 
 
 // Copy BAMs (certainly useless, but there is no harm to keep it...)
-// ----------
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~ibag05.bam~ BEGIN //BAMs
+// -----------------------------------------------------------------
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~ibag05.bam~ BEGIN
 	COPY ~bolsa/bam~ ~override~
 END
 
@@ -99,7 +113,7 @@ COPY_EXISTING ~bag02.sto~ ~override/mhbag02.sto~
               ~bag04.sto~ ~override/mhbag04.sto~
               ~bag04.itm~ ~override/mhbag04.itm~
 
-// Cinturon de munición - Ammo Belt
+// Ammo Belt (Cinturon de munición
 COPY ~bolsa/store/mhbag05.sto~ ~override~ 
 	SAY NAME2 @15
 
@@ -109,8 +123,8 @@ COPY ~bolsa/itm/mhbag05.itm~ ~override~
 	SAY UNIDENTIFIED_DESC @16
 	SAY DESC @16
 
-// Caja de pociones - Potion Case
-COPY ~bolsa/mhbag06.sto~ ~override~
+// Potion Case (Caja de pociones)
+COPY ~bolsa/store/mhbag06.sto~ ~override~
 	SAY NAME2 @17
 
 COPY ~bolsa/itm/mhbag06.itm~ ~override~
@@ -119,7 +133,7 @@ COPY ~bolsa/itm/mhbag06.itm~ ~override~
 	SAY UNIDENTIFIED_DESC @18
 	SAY DESC @18
 
-// Bastón de magus - Staff of Magus
+// Staff of Magus (Bastón de magus)
 COPY ~bolsa/itm/mhconti.itm~ ~override~
 	SAY NAME1 @11
 	SAY NAME2 @11
@@ -128,53 +142,37 @@ COPY ~bolsa/itm/mhconti.itm~ ~override~
 		LPF ~GW_ALTER_ITEM_ALTER_HEADER_FLAGS~ INT_VAR type = 3 header = 2 flag_breaksanctuary = 1 END
 	END
 	PATCH_IF (is_ee OR is_1pp_staff) BEGIN
-		WRITE_ASCII 0x22 ~GS~			// Glowing staff
-		WRITE_ASCII 0x44 ~1GSTAFGS~ #8	// Replace GSTAF01
-		LPM ~clear~
-		SET gradient = 127				// Adds colour index 127 DARK_BRICK_RED
-		SET location = wpink			// location
-		LPM ~colour~
-		SET gradient = 207				// Adds colour index 207 NOBLE_MINOR2-CHROME_GOLD
-		SET location = wteal			// location
-		LPM ~colour~
-		SET gradient = 192				// colour index 192 CHROME_TEAL replaces 25 DARK_PURE_GOLD
-		SET location = wgrey			// location
-		LPM ~colour~
-		SET setr = 0
-		SET setg = 0
-		SET setb = 0
-		SET location = wblue			// location
-		LPM ~glow~
-		SET gradient = 250				// Adds colour index 250 SHADOW_DRUID_MAJOR-YELLOW_ORANGE
-		SET location = wblue			// location
-		LPM ~colour~
-		SET gradient = 220				// colour index 220 ELF_MAJOR-MIDNIGHT_BLUE replaces 27 GRAY
-		SET location = wred				// location
-		LPM ~colour~
+		LPF ~1pp_staf11~ END
+	END
+	PATCH_IF (is_1pp_staff0) BEGIN
+		LPF ~1pp_staf11_0~ END
 	END
 BUT_ONLY
 LAF ~GW_ADD_ITEM_TOOLTIPS~ STR_VAR GW_objet = ~mhconti~ GW_tooltips = ~15529 3895 26304 @121~ END	// Melee - Fireball-Lightning 3 times per day - Spell Trap once per day - Mordekainen's Contingency once per day 
 COPY_EXISTING ~tooltip.2da~ ~override~
 	PRETTY_PRINT_2DA
 
-// Lanzador Contingencia en Cadena Mejorada
+// Mordekainen's Contingency (Lanzador Contingencia en Cadena Mejorada)
 COPY ~bolsa/cre/mhbolsa2.cre~ ~override~
 	SAY NAME1 @13
 	SAY NAME2 @13
+BUT_ONLY
 
-// Script para lanzar Contingencia en Cadena Mejorada
 COMPILE ~bolsa/baf/mhbolsa2.baf~
 
-// Vendedor
+// Merchant (Vendedor) and New store (Tienda nueva)
+// ------------------------------------------------
 COPY ~bolsa/cre/mhbolsa.cre~ ~override~
 	SAY NAME1 @14
 	SAY NAME2 @14
+BUT_ONLY
 
-// Tienda nueva
 COPY ~bolsa/store/mhbolsa.sto~ ~override~
 	SAY NAME2 @0
+BUT_ONLY
 
-// Dialogo del vendedor
+// Compile dialog (Dialogo del vendedor)
+// -------------------------------------
 COMPILE ~bolsa/dlg/mhbolsa.d~
 
 EXTEND_BOTTOM ~ar0511.bcs~ ~bolsa/baf/mhbolsa.baf~

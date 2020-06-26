@@ -1,0 +1,60 @@
+/* ======================================================================================================================= *
+ *  Code borrowed from Erephine's 1PP v5.0.0 (revised by Gwendolyne) to provide full compatibility with 1PP and EE games.  *
+ *  Those functions restore items coloration for EE games or if 1PP relevant components are installed.                     *
+ * ----------------------------------------------------------------------------------------------------------------------- *
+ *  Reprise du code de 1PP v5.0.0 (Erephine) pour assurer une compatibilité totale avec 1PP et les jeux EE.                *
+ *  Ces fonctions restaurent les couleurs des objets utilisées par les jeux EE et certains composants de 1PP.              *
+ * ======================================================================================================================= */
+
+// Staff of Magus
+DEFINE_PATCH_FUNCTION ~1pp_staf11~ BEGIN
+	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN	// protects against invalid files
+		WRITE_ASCII 0x22 ~GS~			// Glowing staff
+		WRITE_ASCII 0x44 ~1GSTAFGS~ #8	// replaces GSTAF01
+		LPM ~clear~
+		SET gradient = 127				// sets colour index 127 DARK_BRICK_RED
+		SET location = wpink			// location (Bolt-Mace-Staff)
+		LPM ~colour~
+		SET gradient = 207				// sets colour index 207 NOBLE_MINOR2-CHROME_GOLD
+		SET location = wteal			// location (Staff minor)
+		LPM ~colour~
+		SET gradient = 192				// 192 CHROME_TEAL replaces colour index 25 DARK_PURE_GOLD
+		SET location = wgrey			// location (Head/Blade/Staff major)
+		LPM ~colour~
+		SET setr = 0
+		SET setg = 0
+		SET setb = 0
+		SET location = wblue			// location (Head/Blade minor)
+		LPM ~glow~
+		SET gradient = 250				// sets colour index 250 SHADOW_DRUID_MAJOR-YELLOW_ORANGE
+		SET location = wblue			// location (Head/Blade minor)
+		LPM ~colour~
+		SET gradient = 220				// 220 ELF_MAJOR-MIDNIGHT_BLUE replaces colour index 27 GRAY
+		SET location = wred				// location (Grip/Staff minor - vanilla = whole staff)
+		LPM ~colour~
+	END
+END
+
+DEFINE_PATCH_FUNCTION ~1pp_staf11_0~ BEGIN
+	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+		SET opcode_to_delete = 7
+		LPM DELETE_ITEM_EQEFFECT
+		SET opcode_to_delete = 8
+		LPM DELETE_ITEM_EQEFFECT
+		SET gradient = 112		// 112 SEA_FOAM replaces colour index 25 DARK_PURE_GOLD
+		SET location = wgrey	// location (Head/Blade/Staff major)
+		LPM ~colour~
+		SET gradient = 113		// sets colour index 113 FOG
+		SET location = wteal	// location (Staff minor)
+		LPM ~colour~
+		SET gradient = 93		// sets colour index 93 DARK_CEMENT_GRAY
+		SET location = wpink	// location (Bolt-Mace-Staff)
+		LPM ~colour~
+		SET gradient = 98		// sets colour index 98 LEAF_GREEN
+		SET location = wblue	// location (Head/Blade minor)
+		LPM ~colour~
+		SET gradient = 27		// sets colour index 27 GRAY
+		SET location = wred		// location * compatibility
+		LPM ~colour~
+	END
+END
