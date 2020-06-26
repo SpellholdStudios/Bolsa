@@ -3,5 +3,5 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("mhbolsa","ar0511",1)
-    CreateCreature("mhbolsa",[890.577],3)  
+    CreateCreature("mhbolsa",[890.577],3)
 END
