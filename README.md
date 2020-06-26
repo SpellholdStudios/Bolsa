@@ -13,17 +13,16 @@ Baldur's Gate Trilogy and EET<h3>
 
 **Original Authors:** Alexa (idea) and Mhoram (programming and development)  
 **Mod Website:** <a href="http://www.shsforums.net/forum/234-miscellaneous-released-mods/">Spellhold Studios</a>  
-**Mod Forum:** <a href="http://www.shsforums.net/topic/60853-bolsa-updated-to-v600-with-ee-compatibility/">Bolsa</a><br><br>
+**Mod Forum:** <a href="http://www.shsforums.net/topic/60853-bolsa-updated-to-v600-with-ee-compatibility/">Bolsa</a><br>
 
+
+**Note:** This mod was first released at <a href="http://corellon.clandlan.net">Clan DLAN</a> and has been officially mirrored at <a href="http://www.shsforums.net/files/category/91-clan-dlan-mirror/">Spellhold Studios Clan DLAN mirror</a> by <a href="http://www.shsforums.net/user/359-immortality/">Immortality</a>.<br>
+
+&nbsp;
 
 [Read the mod's readme](https://spellholdstudios.github.io/readmes/bolsa-readme-english.txt)
 
 [Download the mod at Spellhold Studios](http://www.shsforums.net/files/file/772-bolsa)<br>
-
-&nbsp;
-
-**Note:** This mod was first released at <a href="http://corellon.clandlan.net">Clan DLAN</a> and has been officially mirrored at <a href="http://www.shsforums.net/files/category/91-clan-dlan-mirror/">Spellhold Studios Clan DLAN mirror</a> by <a href="http://www.shsforums.net/user/359-immortality/">Immortality</a>.<br>
-
 
 <div align="center">
 <a href="#intro">Overview</a> &#x2B25; <a href="#compat">Compatibility</a> &#x2B25; <a href="#installation">Installation</a> &#x2B25; <a href="#components">Components</a> &#x2B25; <a href="#credits">Credits</a> &#x2B25; <a href="#versions">Version History</a></br>
