@@ -55,7 +55,7 @@ ALWAYS
 	 * --------------------------------------------------------------------------------------------- */
 	ACTION_DEFINE_ARRAY mh_reload BEGIN setup END
 		// any tra files used in LANGUAGE need to be reloaded after UTF-8 conversion
-	ACTION_DEFINE_ARRAY mh_noconvert BEGIN setup-win32 setup-unix setup-osx END
+	ACTION_DEFINE_ARRAY mh_noconvert BEGIN install END
 	LAF HANDLE_CHARSETS
 		INT_VAR
 			infer_charsets = 1
@@ -91,7 +91,8 @@ LANGUAGE ~Italiano (traduzione di ilot)~
 
 LANGUAGE ~Simplified Chinese~
          ~schinese~
-         ~bolsa/tra/schinese/setup-%WEIDU_OS%.tra~
+         ~bolsa/tra/schinese/install.tra~
+         ~bolsa/tra/schinese/setup.tra~
 
 /* ====================== *
  *         Bolsa          *
