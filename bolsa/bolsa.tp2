@@ -55,7 +55,7 @@ ALWAYS
 	 * --------------------------------------------------------------------------------------------- */
 	ACTION_DEFINE_ARRAY mh_reload BEGIN setup END
 		// any tra files used in LANGUAGE need to be reloaded after UTF-8 conversion
-	ACTION_DEFINE_ARRAY mh_noconvert BEGIN END
+	ACTION_DEFINE_ARRAY mh_noconvert BEGIN setup END
 	LAF HANDLE_CHARSETS
 		INT_VAR
 			infer_charsets = 1
@@ -89,6 +89,9 @@ LANGUAGE ~Italiano (traduzione di ilot)~
          ~italian~
          ~bolsa/tra/italian/setup.tra~
 
+LANGUAGE ~Simplified Chinese~
+         ~schinese~
+         ~bolsa/tra/schinese/setup.tra~
 
 /* ====================== *
  *         Bolsa          *
@@ -113,7 +116,7 @@ COPY_EXISTING ~bag02.sto~ ~override/mhbag02.sto~
               ~bag04.sto~ ~override/mhbag04.sto~
               ~bag04.itm~ ~override/mhbag04.itm~
 
-// Ammo Belt (Cinturon de munición
+// Ammo Belt (Cinturon de munici n
 COPY ~bolsa/store/mhbag05.sto~ ~override~ 
 	SAY NAME2 @15
 
@@ -133,7 +136,7 @@ COPY ~bolsa/itm/mhbag06.itm~ ~override~
 	SAY UNIDENTIFIED_DESC @18
 	SAY DESC @18
 
-// Staff of Magus (Bastón de magus)
+// Staff of Magus (Bast n de magus)
 COPY ~bolsa/itm/mhconti.itm~ ~override~
 	SAY NAME1 @11
 	SAY NAME2 @11
